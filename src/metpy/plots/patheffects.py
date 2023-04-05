@@ -1,4 +1,4 @@
-#  Copyright (c) 2020,2022 MetPy Developers.
+#  Copyright (c) 2020,2022,2023 MetPy Developers.
 #  Distributed under the terms of the BSD 3-Clause License.
 #  SPDX-License-Identifier: BSD-3-Clause
 """Add effects to matplotlib paths."""
@@ -297,7 +297,7 @@ class ScallopedStroke(mpatheffects.AbstractPathEffect):
         self._length = length
         self._gc = kwargs
 
-    def draw_path(self, renderer, gc, path, affine, rgbFace=None):
+    def draw_path(self, renderer, gc, path, affine, rgbFace=None):  # noqa: N803
         """Draw the path with updated gc."""
         # Do not modify the input! Use copy instead.
         gc0 = renderer.new_gc()
@@ -339,7 +339,7 @@ class ScallopedStroke(mpatheffects.AbstractPathEffect):
 
             num = int(np.ceil(s_total / spacing_px)) - 1
             # Pick parameter values for scallops.
-            s_tick = np.linspace(0, s_total - 1e-5, num)
+            s_tick = np.linspace(0, s_total, num)
 
             # Find points along the parameterized curve
             x_tick = np.interp(s_tick, s, x)
@@ -349,6 +349,14 @@ class ScallopedStroke(mpatheffects.AbstractPathEffect):
             delta_s = self._spacing * .001
             u = (np.interp(s_tick + delta_s, s, x) - x_tick) / delta_s
             v = (np.interp(s_tick + delta_s, s, y) - y_tick) / delta_s
+
+            # Handle slope of end point
+            if (x_tick[-1], y_tick[-1]) == (x_tick[0], y_tick[0]):  # periodic
+                u[-1] = u[0]
+                v[-1] = v[0]
+            else:
+                u[-1] = u[-2]
+                v[-1] = v[-2]
 
             # Normalize slope into unit slope vector.
             n = np.hypot(u, v)
@@ -373,7 +381,7 @@ class ScallopedStroke(mpatheffects.AbstractPathEffect):
             xyt[1::2, 1] = y_end
 
             # Build path verticies that will define control points
-            # the bezier curves
+            # of the bezier curves
             verts = []
             i = 0
             nverts = 0
@@ -397,6 +405,3 @@ class ScallopedStroke(mpatheffects.AbstractPathEffect):
             renderer.draw_path(gc0, h, affine.inverted() + trans, rgbFace)
 
         gc0.restore()
-
-
-withScallopedStroke = mpatheffects._subclass_with_normal(effect_class=ScallopedStroke)

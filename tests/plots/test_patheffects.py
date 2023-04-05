@@ -1,4 +1,4 @@
-# Copyright (c) 2022 MetPy Developers.
+# Copyright (c) 2022,2023 MetPy Developers.
 # Distributed under the terms of the BSD 3-Clause License.
 # SPDX-License-Identifier: BSD-3-Clause
 """Test the `patheffects` module."""
@@ -60,7 +60,7 @@ def test_stationary_spacing():
 
 
 @pytest.mark.mpl_image_compare(savefig_kwargs={'dpi': 300}, remove_text=True)
-def test_scalloped_stroke():
+def test_scalloped_stroke_closed():
     """Test ScallopedStroke path effect."""
     fig = plt.figure(figsize=(9, 9))
     ax = plt.subplot(1, 1, 1)
@@ -84,5 +84,31 @@ def test_scalloped_stroke():
     ax.axis('equal')
     ax.set_xlim(-2, 2)
     ax.set_ylim(-2, 2)
+
+    return fig
+
+
+@pytest.mark.mpl_image_compare(savefig_kwargs={'dpi': 300}, remove_text=True)
+def test_scalloped_stroke_segment():
+    """Test ScallopedStroke path effect."""
+    fig = plt.figure(figsize=(9, 9))
+    ax = plt.subplot(1, 1, 1)
+
+    # test data
+    x = np.arange(9)
+    y = np.concatenate([np.arange(5), np.arange(3, -1, -1)])
+    verts = np.array([[x, y] for x, y in zip(x, y)])
+    codes = np.repeat(mpath.Path.LINETO, len(x))
+    codes[0] = mpath.Path.MOVETO
+
+    path = mpath.Path(verts, codes)
+    patch = mpatches.PathPatch(path, facecolor='none', edgecolor='#000000',
+                               path_effects=[
+                                   ScallopedStroke(side='left', spacing=10, length=1.15)])
+
+    ax.add_patch(patch)
+    ax.axis('equal')
+    ax.set_xlim(-0.5, 9.5)
+    ax.set_ylim(-0.5, 4.5)
 
     return fig
