@@ -1,0 +1,9 @@
+{
+    "arch": "arm64",
+    "cpu": "Apple M2 Pro",
+    "machine": "letterman",
+    "num_cpu": "12",
+    "os": "macOS Sequoia 15.2",
+    "ram": "32GB",
+    "version": 1
+}
