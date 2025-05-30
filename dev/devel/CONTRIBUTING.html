@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributors Guide &#8212; MetPy 1.7dev</title>
+    <title>Contributors Guide &#8212; MetPy 0.0dev</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=030dc6f6"></script>
+    <script src="../_static/documentation_options.js?v=2e23ac9b"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -66,7 +66,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://unidata.github.io/MetPy/pst-versions.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.7';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -79,8 +79,8 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.7dev" />
-    <meta name="docbuild:last-update" content="May 01, 2025 at 00:48:13"/>
+  <meta name="docsearch:version" content="0.0dev" />
+    <meta name="docbuild:last-update" content="May 30, 2025 at 17:34:37"/>
     <link rel="canonical" href="https://unidata.github.io/MetPy/latest/devel/CONTRIBUTING.html" />
 
   </head>
@@ -149,8 +149,8 @@
       
     
     
-    <img src="../_static/metpy_horizontal.png" class="logo__image only-light" alt="MetPy 1.7dev - Home"/>
-    <img src="../_static/metpy_horizontal.png" class="logo__image only-dark pst-js-only" alt="MetPy 1.7dev - Home"/>
+    <img src="../_static/metpy_horizontal.png" class="logo__image only-light" alt="MetPy 0.0dev - Home"/>
+    <img src="../_static/metpy_horizontal.png" class="logo__image only-dark pst-js-only" alt="MetPy 0.0dev - Home"/>
   
   
 </a></div>
@@ -652,7 +652,7 @@ Configure this environment so that we can reach
 </div>
 <p>Install the necessary dependency packages from conda-forge.
 Remember that these must be executed within the <code class="docutils literal notranslate"><span class="pre">metpy</span></code> directory.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>--file<span class="w"> </span>ci/requirements.txt<span class="w"> </span>--file<span class="w"> </span>ci/extra_requirements.txt<span class="w"> </span>--file<span class="w"> </span>ci/test_requirements.txt
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>--file<span class="w"> </span>ci/requirements.txt<span class="w"> </span>--file<span class="w"> </span>ci/extra_requirements.txt<span class="w"> </span>--file<span class="w"> </span>ci-dev/test_requirements.txt
 </pre></div>
 </div>
 <p>Finally, create an editable install of MetPy that will update with your development!</p>
@@ -718,7 +718,7 @@ your feature is more complex, consider adding to the examples or tutorials for M
 <p>You can build the documentation locally to see how your changes will look.
 After setting up your <a class="reference internal" href="#setting-up-your-development-environment">development environment</a> above,
 from within the <code class="docutils literal notranslate"><span class="pre">metpy</span></code> directory with your <code class="docutils literal notranslate"><span class="pre">devel</span></code> environment active,
-use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--file</span> <span class="pre">ci/doc_requirements.txt</span></code>
+use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--file</span> <span class="pre">ci-dev/doc_requirements.txt</span></code>
 to install required packages to build our documentation.
 Then, still from within your <code class="docutils literal notranslate"><span class="pre">devel</span></code> environment,</p>
 <ul class="simple">
@@ -843,9 +843,9 @@ locally within the source directory you can use the <a class="reference external
 <a class="reference external" href="https://flake8.pycqa.org/en/latest/">flake8</a> tools.
 After setting up your <a class="reference internal" href="#setting-up-your-development-environment">development environment</a> above,
 from within the <code class="docutils literal notranslate"><span class="pre">metpy</span></code> directory with your <code class="docutils literal notranslate"><span class="pre">devel</span></code> environment active,
-install the code style tools we use with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--file</span> <span class="pre">ci/linting_requirements.txt</span></code>.
-Checking your code style is then as easy as running <code class="docutils literal notranslate"><span class="pre">ruff</span> <span class="pre">check</span> <span class="pre">.</span> <span class="pre">;</span> <span class="pre">flake8</span> <span class="pre">.</span></code>
-in the base of the repository.</p>
+install the code style tools we use with
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--file</span> <span class="pre">ci-dev/linting_requirements.txt</span></code>. Checking your code style is then as
+easy as running <code class="docutils literal notranslate"><span class="pre">ruff</span> <span class="pre">check</span> <span class="pre">.</span> <span class="pre">;</span> <span class="pre">flake8</span> <span class="pre">.</span></code> in the base of the repository.</p>
 <p>You can also just submit your PR and the kind robots will comment on all style violations as
 well. It can be a pain to make sure you have the right number of spaces around things, imports
 in order, and all of the other nits that the bots will find. It is very important though as

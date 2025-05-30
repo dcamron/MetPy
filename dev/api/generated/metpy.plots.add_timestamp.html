@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>add_timestamp &#8212; MetPy 1.7dev</title>
+    <title>add_timestamp &#8212; MetPy 0.0dev</title>
   
   
   
@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=030dc6f6"></script>
+    <script src="../../_static/documentation_options.js?v=2e23ac9b"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
@@ -66,7 +66,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://unidata.github.io/MetPy/pst-versions.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.7';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
@@ -79,8 +79,8 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.7dev" />
-    <meta name="docbuild:last-update" content="May 01, 2025 at 00:48:13"/>
+  <meta name="docsearch:version" content="0.0dev" />
+    <meta name="docbuild:last-update" content="May 30, 2025 at 17:34:37"/>
     <link rel="canonical" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.plots.add_timestamp.html" />
 
   </head>
@@ -149,8 +149,8 @@
       
     
     
-    <img src="../../_static/metpy_horizontal.png" class="logo__image only-light" alt="MetPy 1.7dev - Home"/>
-    <img src="../../_static/metpy_horizontal.png" class="logo__image only-dark pst-js-only" alt="MetPy 1.7dev - Home"/>
+    <img src="../../_static/metpy_horizontal.png" class="logo__image only-light" alt="MetPy 0.0dev - Home"/>
+    <img src="../../_static/metpy_horizontal.png" class="logo__image only-dark pst-js-only" alt="MetPy 0.0dev - Home"/>
   
   
 </a></div>
@@ -492,6 +492,13 @@
 <li class="toctree-l2"><a class="reference internal" href="metpy.io.StationLookup.html">StationLookup</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="metpy.remote.html">Remote Data Sources <code class="docutils literal notranslate"><span class="pre">(metpy.remote)</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="metpy.remote.NEXRADLevel3Archive.html">NEXRADLevel3Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metpy.remote.NEXRADLevel2Archive.html">NEXRADLevel2Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metpy.remote.GOESArchive.html">GOESArchive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metpy.remote.MLWPArchive.html">MLWPArchive</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="metpy.calc.html">Calculations <code class="docutils literal notranslate"><span class="pre">(metpy.calc)</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="metpy.calc.add_height_to_pressure.html">add_height_to_pressure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metpy.calc.add_pressure_to_height.html">add_pressure_to_height</a></li>
@@ -800,7 +807,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.10.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>) – The <em class="xref py py-obj">Axes</em> instance used for plotting</p></li>
+<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.10.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>) – The <em class="xref py py-obj">Axes</em> instance used for plotting</p></li>
 <li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> (or any object with a compatible <code class="docutils literal notranslate"><span class="pre">strftime</span></code> method)) – Specific time to be plotted - <code class="docutils literal notranslate"><span class="pre">datetime.now(UTC)</span></code> will be use if not specified</p></li>
 <li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Relative x position on the axes of the timestamp</p></li>
 <li><p><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Relative y position on the axes of the timestamp</p></li>
@@ -811,7 +818,7 @@
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text" title="(in Matplotlib v3.10.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.text.Text</span></code></a> – The <a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text" title="(in Matplotlib v3.10.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.text.Text</span></code></a> instance created</p>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text" title="(in Matplotlib v3.10.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.text.Text</span></code></a> – The <a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text" title="(in Matplotlib v3.10.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.text.Text</span></code></a> instance created</p>
 </dd>
 </dl>
 </dd></dl>
