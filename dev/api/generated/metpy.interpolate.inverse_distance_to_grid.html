@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=2e23ac9b"></script>
+    <script src="../../_static/documentation_options.js?v=9669464a"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
@@ -80,7 +80,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.0dev" />
-    <meta name="docbuild:last-update" content="May 30, 2025 at 17:34:37"/>
+    <meta name="docbuild:last-update" content="Aug 07, 2025 at 15:45:54"/>
     <link rel="canonical" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.interpolate.inverse_distance_to_grid.html" />
 
   </head>
@@ -808,12 +808,12 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xp</strong> (<em>(</em><em>N</em><em>, </em><em>) </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – x-coordinates of observations.</p></li>
-<li><p><strong>yp</strong> (<em>(</em><em>N</em><em>, </em><em>) </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – y-coordinates of observations.</p></li>
-<li><p><strong>variable</strong> (<em>(</em><em>N</em><em>, </em><em>) </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – observation values associated with (xp, yp) pairs.
+<li><p><strong>xp</strong> (<em>(</em><em>N</em><em>, </em><em>) </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><em>numpy.ndarray</em></a>) – x-coordinates of observations.</p></li>
+<li><p><strong>yp</strong> (<em>(</em><em>N</em><em>, </em><em>) </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><em>numpy.ndarray</em></a>) – y-coordinates of observations.</p></li>
+<li><p><strong>variable</strong> (<em>(</em><em>N</em><em>, </em><em>) </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><em>numpy.ndarray</em></a>) – observation values associated with (xp, yp) pairs.
 IE, variable[i] is a unique observation at (xp[i], yp[i]).</p></li>
-<li><p><strong>grid_x</strong> (<em>(</em><em>M</em><em>, </em><em>2</em><em>) </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – Meshgrid associated with x dimension.</p></li>
-<li><p><strong>grid_y</strong> (<em>(</em><em>M</em><em>, </em><em>2</em><em>) </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – Meshgrid associated with y dimension.</p></li>
+<li><p><strong>grid_x</strong> (<em>(</em><em>M</em><em>, </em><em>2</em><em>) </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><em>numpy.ndarray</em></a>) – Meshgrid associated with x dimension.</p></li>
+<li><p><strong>grid_y</strong> (<em>(</em><em>M</em><em>, </em><em>2</em><em>) </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><em>numpy.ndarray</em></a>) – Meshgrid associated with y dimension.</p></li>
 <li><p><strong>r</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Radius from grid center, within which observations
 are considered and weighted.</p></li>
 <li><p><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Adjustable smoothing parameter for the barnes interpolation. Default None.</p></li>
