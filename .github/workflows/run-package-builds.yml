@@ -1,0 +1,9 @@
+name: run-package-builds.yml
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+jobs:
+  Builds:
+    uses: ./.github/workflows/packages.yml

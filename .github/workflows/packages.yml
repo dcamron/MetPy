@@ -1,0 +1,79 @@
+name: Build Packages
+on:
+  workflow_call:
+    inputs:
+      platform:
+        required: false
+        type: string
+        default: '["ubuntu-latest", "macos-latest", "macos-15-intel", "windows-latest", "windows-11-arm"]'
+      build:
+        required: false
+        type: string
+        default: ''
+      archs:
+        required: false
+        type: string
+        default: ''
+      wheels:
+        required: false
+        type: boolean
+        default: true
+      sdist:
+        required: false
+        type: boolean
+        default: true
+
+concurrency:
+  group: ${{ github.workflow}}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  wheels:
+    name: ${{ matrix.platform }} Wheels
+    if: inputs.wheels == true
+    runs-on: ${{ matrix.platform }}
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: ${{ fromJSON(inputs.platform) }}
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-tags: true
+          fetch-depth: 150
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@v7
+
+      - name: Build wheels
+        uses: pypa/cibuildwheel@v3.3.1
+        # env:
+          # CIBW_PLATFORM: ${{ matrix.platform }}
+          # CIBW_BUILD: ${{ inputs.build }}
+          # CIBW_ARCHS: ${{ inputs.archs }}
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: wheels-${{ matrix.platform }} 
+          path: ./wheelhouse/*.whl
+
+  sdist:
+    name: Source Distribution
+    if: inputs.sdist == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      
+      - uses: astral-sh/setup-uv@v7
+
+      - name: Build sdist
+        run: uv build --sdist
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: sdist
+          path: dist/*.tar.gz
+
