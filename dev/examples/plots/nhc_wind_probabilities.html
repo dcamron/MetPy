@@ -45,17 +45,11 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=a77542ef"></script>
-    <script src="../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/documentation_options.js?v=030dc6f6"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-J48T2BG3J7"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-J48T2BG3J7');
-            </script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
@@ -74,13 +68,13 @@
     <link rel="icon" href="../../_static/metpy_32x32.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Skew-T with Complex Layout" href="Skew-T_Layout.html" />
-    <link rel="prev" title="Upper Air Analysis using Declarative Syntax" href="upperair_declarative.html" />
+    <link rel="next" title="Hodograph Inset" href="Hodograph_Inset.html" />
+    <link rel="prev" title="Skew-T with Complex Layout" href="Skew-T_Layout.html" />
     
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="1.7dev" />
-    <meta name="docbuild:last-update" content="Sep 16, 2025 at 22:21:19"/>
+    <meta name="docbuild:last-update" content="Feb 11, 2026 at 20:14:48"/>
     <link rel="canonical" href="https://unidata.github.io/MetPy/latest/examples/plots/nhc_wind_probabilities.html" />
 
   </head>
@@ -521,12 +515,12 @@
 <li class="toctree-l2"><a class="reference internal" href="raster_declarative.html">Raster Plots using Declarative Syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="US_Counties.html">US Counties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Simple_Fronts_Plot.html">Simple Plotting of Fronts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spc_convective_outlook.html">NOAA SPC Convective Outlook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Combined_plotting.html">Combined Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spc_convective_outlook.html">NOAA SPC Convective Outlook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surface_declarative.html">Surface Analysis using Declarative Syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upperair_declarative.html">Upper Air Analysis using Declarative Syntax</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">NOAA NHC Wind Speed Probabilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Skew-T_Layout.html">Skew-T with Complex Layout</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">NOAA NHC Wind Speed Probabilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Hodograph_Inset.html">Hodograph Inset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Sounding_LCL_Dataset.html">Sounding as Dataset Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Plotting_Surface_Analysis.html">Plotting Fronts</a></li>
@@ -622,10 +616,11 @@ tropical-storm-force wind speed probabilities from NOAA National Hurricane Cente
 </pre></div>
 </div>
 <p>Read in the shapefile file containing the wind probabilities.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">wind_data</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">get_test_data</span><span class="p">(</span><span class="s1">&#39;nhc_wind_prob_2021082012.zip&#39;</span><span class="p">))</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">wind_data</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">get_test_data</span><span class="p">(</span><span class="s1">&#39;nhc_wind_prob_2021082012.zip&#39;</span><span class="p">,</span>
+                                              <span class="n">as_file_obj</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.13.7/x64/lib/python3.13/site-packages/pyogrio/geopandas.py:275: UserWarning: More than one layer found in &#39;pyogrio_f0b5c5091d7444d787a063d6d3bd8290.zip&#39;: &#39;2021082012_wsp34knt120hr_5km&#39; (default), &#39;2021082012_wsp50knt120hr_5km&#39;, &#39;2021082012_wsp64knt120hr_5km&#39;. Specify layer parameter to avoid this warning.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/pyogrio/geopandas.py:382: UserWarning: More than one layer found in &#39;nhc_wind_prob_2021082012.zip&#39;: &#39;2021082012_wsp34knt120hr_5km&#39; (default), &#39;2021082012_wsp50knt120hr_5km&#39;, &#39;2021082012_wsp64knt120hr_5km&#39;. Specify layer parameter to avoid this warning.
   result = read_func(
 </pre></div>
 </div>
@@ -733,7 +728,7 @@ Hurricane Center for their wind speed probability plots.</p>
 </div>
 <br />
 <br /><p>Read in the shapefile file containing the cities.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">get_test_data</span><span class="p">(</span><span class="s1">&#39;us_cities.zip&#39;</span><span class="p">))</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">get_test_data</span><span class="p">(</span><span class="s1">&#39;us_cities.zip&#39;</span><span class="p">,</span> <span class="n">as_file_obj</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>There are thousands of cities in the United States. We choose a few cities here that we want
@@ -1145,7 +1140,7 @@ wind speed probabilities, along with some select cities and their specific proba
 <a href="../../api/generated/metpy.plots.PanelContainer.html#metpy.plots.PanelContainer.show" title="metpy.plots.PanelContainer.show" class="sphx-glr-backref-module-metpy-plots sphx-glr-backref-type-py-method"><span class="n">pc</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_nhc_wind_probabilities_001.png" srcset="../../_images/sphx_glr_nhc_wind_probabilities_001.png" alt="NHC 5-Day Tropical-Storm-Force Wind Probabilities (Valid 12z Aug 20 2021)" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.880 seconds)</p>
+<img src="../../_images/sphx_glr_nhc_wind_probabilities_001.png" srcset="../../_images/sphx_glr_nhc_wind_probabilities_001.png" alt="NHC 5-Day Tropical-Storm-Force Wind Probabilities (Valid 12z Aug 20 2021)" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.872 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plots-nhc-wind-probabilities-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6942e8beca3b4515ffd0e6d7988f8561/nhc_wind_probabilities.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">nhc_wind_probabilities.ipynb</span></code></a></p>
@@ -1171,20 +1166,20 @@ wind speed probabilities, along with some select cities and their specific proba
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="upperair_declarative.html"
+       href="Skew-T_Layout.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Upper Air Analysis using Declarative Syntax</p>
+        <p class="prev-next-title">Skew-T with Complex Layout</p>
       </div>
     </a>
     <a class="right-next"
-       href="Skew-T_Layout.html"
+       href="Hodograph_Inset.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Skew-T with Complex Layout</p>
+        <p class="prev-next-title">Hodograph Inset</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1218,7 +1213,7 @@ wind speed probabilities, along with some select cities and their specific proba
 
   <p class="copyright">
     
-      © Copyright 2008–2025, MetPy Developers. Development is supported by Unidata and the National Science Foundation.
+      © Copyright 2008–2026, MetPy Developers. Development is supported by Unidata and the National Science Foundation.
       <br/>
     
   </p>
@@ -1227,7 +1222,7 @@ wind speed probabilities, along with some select cities and their specific proba
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
     <br/>
   </p>
 </div>

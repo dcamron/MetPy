@@ -26,7 +26,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Simplified_Image_Plot_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Simplified_Image_Plot.py`
+  :doc:`/examples/plots/Simplified_Image_Plot`
 
 .. raw:: html
 
@@ -43,7 +43,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_raster_declarative_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_raster_declarative.py`
+  :doc:`/examples/plots/raster_declarative`
 
 .. raw:: html
 
@@ -60,7 +60,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_US_Counties_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_US_Counties.py`
+  :doc:`/examples/plots/US_Counties`
 
 .. raw:: html
 
@@ -77,28 +77,11 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Simple_Fronts_Plot_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Simple_Fronts_Plot.py`
+  :doc:`/examples/plots/Simple_Fronts_Plot`
 
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Simple Plotting of Fronts</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Demonstrate the use of geoJSON and shapefile data with PlotGeometry in MetPy&#x27;s simplified plotting interface. This example walks through plotting the Day 1 Convective Outlook from NOAA Storm Prediction Center. The geoJSON file was retrieved from the Storm Prediction Center&#x27;s archives.">
-
-.. only:: html
-
-  .. image:: /examples/plots/images/thumb/sphx_glr_spc_convective_outlook_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_examples_plots_spc_convective_outlook.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">NOAA SPC Convective Outlook</div>
     </div>
 
 
@@ -111,11 +94,28 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Combined_plotting_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Combined_plotting.py`
+  :doc:`/examples/plots/Combined_plotting`
 
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Combined Plotting</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Demonstrate the use of geoJSON and shapefile data with PlotGeometry in MetPy&#x27;s simplified plotting interface. This example walks through plotting the Day 1 Convective Outlook from NOAA Storm Prediction Center. The geoJSON file was retrieved from the Storm Prediction Center&#x27;s archives.">
+
+.. only:: html
+
+  .. image:: /examples/plots/images/thumb/sphx_glr_spc_convective_outlook_thumb.png
+    :alt:
+
+  :doc:`/examples/plots/spc_convective_outlook`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">NOAA SPC Convective Outlook</div>
     </div>
 
 
@@ -128,7 +128,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_surface_declarative_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_surface_declarative.py`
+  :doc:`/examples/plots/surface_declarative`
 
 .. raw:: html
 
@@ -145,28 +145,11 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_upperair_declarative_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_upperair_declarative.py`
+  :doc:`/examples/plots/upperair_declarative`
 
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Upper Air Analysis using Declarative Syntax</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Demonstrate the use of geoJSON and shapefile data with PlotGeometry in MetPy&#x27;s simplified plotting interface. This example walks through plotting cities, along with 5-day tropical-storm-force wind speed probabilities from NOAA National Hurricane Center.">
-
-.. only:: html
-
-  .. image:: /examples/plots/images/thumb/sphx_glr_nhc_wind_probabilities_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_examples_plots_nhc_wind_probabilities.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">NOAA NHC Wind Speed Probabilities</div>
     </div>
 
 
@@ -179,11 +162,28 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Skew-T_Layout_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Skew-T_Layout.py`
+  :doc:`/examples/plots/Skew-T_Layout`
 
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Skew-T with Complex Layout</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Demonstrate the use of geoJSON and shapefile data with PlotGeometry in MetPy&#x27;s simplified plotting interface. This example walks through plotting cities, along with 5-day tropical-storm-force wind speed probabilities from NOAA National Hurricane Center.">
+
+.. only:: html
+
+  .. image:: /examples/plots/images/thumb/sphx_glr_nhc_wind_probabilities_thumb.png
+    :alt:
+
+  :doc:`/examples/plots/nhc_wind_probabilities`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">NOAA NHC Wind Speed Probabilities</div>
     </div>
 
 
@@ -196,7 +196,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Hodograph_Inset_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Hodograph_Inset.py`
+  :doc:`/examples/plots/Hodograph_Inset`
 
 .. raw:: html
 
@@ -213,7 +213,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Sounding_LCL_Dataset_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Sounding_LCL_Dataset.py`
+  :doc:`/examples/plots/Sounding_LCL_Dataset`
 
 .. raw:: html
 
@@ -230,7 +230,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Plotting_Surface_Analysis_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Plotting_Surface_Analysis.py`
+  :doc:`/examples/plots/Plotting_Surface_Analysis`
 
 .. raw:: html
 
@@ -247,7 +247,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Simple_Sounding_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Simple_Sounding.py`
+  :doc:`/examples/plots/Simple_Sounding`
 
 .. raw:: html
 
@@ -264,7 +264,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Mesonet_Stationplot_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Mesonet_Stationplot.py`
+  :doc:`/examples/plots/Mesonet_Stationplot`
 
 .. raw:: html
 
@@ -281,7 +281,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Station_Plot_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Station_Plot.py`
+  :doc:`/examples/plots/Station_Plot`
 
 .. raw:: html
 
@@ -298,7 +298,7 @@ Examples using MetPy's various specialty plotting routines.
   .. image:: /examples/plots/images/thumb/sphx_glr_Station_Plot_with_Layout_thumb.png
     :alt:
 
-  :ref:`sphx_glr_examples_plots_Station_Plot_with_Layout.py`
+  :doc:`/examples/plots/Station_Plot_with_Layout`
 
 .. raw:: html
 
@@ -320,12 +320,12 @@ Examples using MetPy's various specialty plotting routines.
    /examples/plots/raster_declarative
    /examples/plots/US_Counties
    /examples/plots/Simple_Fronts_Plot
-   /examples/plots/spc_convective_outlook
    /examples/plots/Combined_plotting
+   /examples/plots/spc_convective_outlook
    /examples/plots/surface_declarative
    /examples/plots/upperair_declarative
-   /examples/plots/nhc_wind_probabilities
    /examples/plots/Skew-T_Layout
+   /examples/plots/nhc_wind_probabilities
    /examples/plots/Hodograph_Inset
    /examples/plots/Sounding_LCL_Dataset
    /examples/plots/Plotting_Surface_Analysis

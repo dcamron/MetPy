@@ -45,17 +45,11 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=a77542ef"></script>
-    <script src="../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/documentation_options.js?v=030dc6f6"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-J48T2BG3J7"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-J48T2BG3J7');
-            </script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
@@ -80,7 +74,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="1.7dev" />
-    <meta name="docbuild:last-update" content="Sep 16, 2025 at 22:21:19"/>
+    <meta name="docbuild:last-update" content="Feb 11, 2026 at 20:14:48"/>
     <link rel="canonical" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.calc.surface_based_cape_cin.html" />
 
   </head>
@@ -811,16 +805,16 @@ logarithmically interpolated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pressure</strong> (<a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.25rc3.dev1+g20e3dd3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a>) – Atmospheric pressure profile. The first entry should be the starting
+<li><p><strong>pressure</strong> (<a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.1.dev50+g84762624b)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a>) – Atmospheric pressure profile. The first entry should be the starting
 (surface) observation, with the array going from high to low pressure.</p></li>
-<li><p><strong>temperature</strong> (<a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.25rc3.dev1+g20e3dd3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a>) – Temperature profile corresponding to the <em class="xref py py-obj">pressure</em> profile</p></li>
-<li><p><strong>dewpoint</strong> (<a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.25rc3.dev1+g20e3dd3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a>) – Dewpoint profile corresponding to the <em class="xref py py-obj">pressure</em> profile</p></li>
+<li><p><strong>temperature</strong> (<a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.1.dev50+g84762624b)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a>) – Temperature profile corresponding to the <em class="xref py py-obj">pressure</em> profile</p></li>
+<li><p><strong>dewpoint</strong> (<a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.1.dev50+g84762624b)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a>) – Dewpoint profile corresponding to the <em class="xref py py-obj">pressure</em> profile</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.25rc3.dev1+g20e3dd3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a> – Surface based Convective Available Potential Energy (CAPE)</p></li>
-<li><p><a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.25rc3.dev1+g20e3dd3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a> – Surface based Convective Inhibition (CIN)</p></li>
+<li><p><a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.1.dev50+g84762624b)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a> – Surface based Convective Available Potential Energy (CAPE)</p></li>
+<li><p><a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.1.dev50+g84762624b)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a> – Surface based Convective Inhibition (CIN)</p></li>
 </ul>
 </p>
 </dd>
@@ -838,13 +832,13 @@ Quantities even when given xarray DataArray profiles.</p>
 <section id="examples-using-metpy-calc-surface-based-cape-cin">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">metpy.calc.surface_based_cape_cin</span></code><a class="headerlink" href="#examples-using-metpy-calc-surface-based-cape-cin" title="Link to this heading">#</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This example combines simple MetPy plotting functionality, metpy.calc computation functionality, and a few basic Matplotlib tricks to create an advanced sounding plot with a complex layout &amp; high readability."><img alt="" src="../../_images/sphx_glr_Advanced_Sounding_With_Complex_Layout_thumb.png" />
-<p><a class="reference internal" href="../../examples/Advanced_Sounding_With_Complex_Layout.html#sphx-glr-examples-advanced-sounding-with-complex-layout-py"><span class="std std-ref">Advanced Sounding Plot with Complex Layout</span></a></p>
+<p><a class="reference internal" href="../../examples/Advanced_Sounding_With_Complex_Layout.html"><span class="doc">Advanced Sounding Plot with Complex Layout</span></a></p>
   <div class="sphx-glr-thumbnail-title">Advanced Sounding Plot with Complex Layout</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Use functions from metpy.calc to perform a number of calculations using sounding data."><img alt="" src="../../_images/sphx_glr_Sounding_Calculations_thumb.png" />
-<p><a class="reference internal" href="../../examples/calculations/Sounding_Calculations.html#sphx-glr-examples-calculations-sounding-calculations-py"><span class="std std-ref">Sounding Calculation Examples</span></a></p>
+<p><a class="reference internal" href="../../examples/calculations/Sounding_Calculations.html"><span class="doc">Sounding Calculation Examples</span></a></p>
   <div class="sphx-glr-thumbnail-title">Sounding Calculation Examples</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="xarray is a powerful Python package that provides N-dimensional labeled arrays and datasets following the Common Data Model. MetPy&#x27;s suite of meteorological calculations are designed to integrate with xarray DataArrays as one of its two primary data models (the other being Pint Quantities). MetPy also provides DataArray and Dataset accessors (collections of methods and properties attached to the .metpy property) for coordinate/CRS and unit operations."><img alt="" src="../../_images/sphx_glr_xarray_tutorial_thumb.png" />
-<p><a class="reference internal" href="../../tutorials/xarray_tutorial.html#sphx-glr-tutorials-xarray-tutorial-py"><span class="std std-ref">xarray with MetPy Tutorial</span></a></p>
+<p><a class="reference internal" href="../../tutorials/xarray_tutorial.html"><span class="doc">xarray with MetPy Tutorial</span></a></p>
   <div class="sphx-glr-thumbnail-title">xarray with MetPy Tutorial</div>
 </div></div><div style='clear:both'></div></section>
 </section>
@@ -926,7 +920,7 @@ Quantities even when given xarray DataArray profiles.</p>
 
   <p class="copyright">
     
-      © Copyright 2008–2025, MetPy Developers. Development is supported by Unidata and the National Science Foundation.
+      © Copyright 2008–2026, MetPy Developers. Development is supported by Unidata and the National Science Foundation.
       <br/>
     
   </p>
@@ -935,7 +929,7 @@ Quantities even when given xarray DataArray profiles.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
     <br/>
   </p>
 </div>

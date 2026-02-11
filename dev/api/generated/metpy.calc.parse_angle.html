@@ -45,17 +45,11 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=a77542ef"></script>
-    <script src="../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/documentation_options.js?v=030dc6f6"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-J48T2BG3J7"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-J48T2BG3J7');
-            </script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
@@ -80,7 +74,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="1.7dev" />
-    <meta name="docbuild:last-update" content="Sep 16, 2025 at 22:21:19"/>
+    <meta name="docbuild:last-update" content="Feb 11, 2026 at 20:14:48"/>
     <link rel="canonical" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.calc.parse_angle.html" />
 
   </head>
@@ -801,16 +795,16 @@
 <h1>parse_angle<a class="headerlink" href="#parse-angle" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="metpy.calc.parse_angle">
-<span class="sig-prename descclassname"><span class="pre">metpy.calc.</span></span><span class="sig-name descname"><span class="pre">parse_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dir</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Unidata/MetPy/blob/main/src/metpy/calc/tools.py#L1766-L1794"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metpy.calc.parse_angle" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">metpy.calc.</span></span><span class="sig-name descname"><span class="pre">parse_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dir</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Unidata/MetPy/blob/main/src/metpy/calc/tools.py#L1765-L1793"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#metpy.calc.parse_angle" title="Link to this definition">#</a></dt>
 <dd><p>Calculate the meteorological angle from directional text.</p>
 <p>Works for abbreviations or whole words (E -&gt; 90 | South -&gt; 180)
 and also is able to parse 22.5 degree angles such as ESE/East South East.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>input_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em> or </em><em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>) – Directional text such as west, [south-west, ne], etc.</p>
+<dd class="field-odd"><p><strong>input_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> or </em><em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – Directional text such as west, [south-west, ne], etc.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.25rc3.dev1+g20e3dd3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a> – The angle in degrees</p>
+<dd class="field-even"><p><a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.1.dev50+g84762624b)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a> – The angle in degrees</p>
 </dd>
 </dl>
 </dd></dl>
@@ -818,10 +812,10 @@ and also is able to parse 22.5 degree angles such as ESE/East South East.</p>
 <section id="examples-using-metpy-calc-parse-angle">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">metpy.calc.parse_angle</span></code><a class="headerlink" href="#examples-using-metpy-calc-parse-angle" title="Link to this heading">#</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Demonstrate how to convert direction strings to angles."><img alt="" src="../../_images/sphx_glr_Parse_Angles_thumb.png" />
-<p><a class="reference internal" href="../../examples/calculations/Parse_Angles.html#sphx-glr-examples-calculations-parse-angles-py"><span class="std std-ref">Parse angles</span></a></p>
+<p><a class="reference internal" href="../../examples/calculations/Parse_Angles.html"><span class="doc">Parse angles</span></a></p>
   <div class="sphx-glr-thumbnail-title">Parse angles</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="Make a surface station plot with Oklahoma Mesonet data."><img alt="" src="../../_images/sphx_glr_Mesonet_Stationplot_thumb.png" />
-<p><a class="reference internal" href="../../examples/plots/Mesonet_Stationplot.html#sphx-glr-examples-plots-mesonet-stationplot-py"><span class="std std-ref">Mesonet Station Plot</span></a></p>
+<p><a class="reference internal" href="../../examples/plots/Mesonet_Stationplot.html"><span class="doc">Mesonet Station Plot</span></a></p>
   <div class="sphx-glr-thumbnail-title">Mesonet Station Plot</div>
 </div></div><div style='clear:both'></div></section>
 </section>
@@ -903,7 +897,7 @@ and also is able to parse 22.5 degree angles such as ESE/East South East.</p>
 
   <p class="copyright">
     
-      © Copyright 2008–2025, MetPy Developers. Development is supported by Unidata and the National Science Foundation.
+      © Copyright 2008–2026, MetPy Developers. Development is supported by Unidata and the National Science Foundation.
       <br/>
     
   </p>
@@ -912,7 +906,7 @@ and also is able to parse 22.5 degree angles such as ESE/East South East.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
     <br/>
   </p>
 </div>
