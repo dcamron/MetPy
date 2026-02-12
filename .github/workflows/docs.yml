@@ -2,13 +2,13 @@ name: Build Docs
 
 # We don't want pushes (or PRs) to gh-pages to kick anything off
 on:
-  push:
-    branches:
-      - main
-      - '[0-9]+.[0-9]+.x'
-    tags:
-      - v[0-9]+.[0-9]+.[0-9]+
-  pull_request:
+  # push:
+  #   branches:
+  #     - main
+  #     - '[0-9]+.[0-9]+.x'
+  #   tags:
+  #     - v[0-9]+.[0-9]+.[0-9]+
+  # pull_request:
 
 concurrency:
   group: ${{ github.workflow}}-${{ github.head_ref }}
