@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61", "setuptools-scm[toml]>=3.4", "scikit-build-core", "pybind11"]
+requires = ["setuptools>=80", "setuptools-scm[simple]>=8", "scikit-build-core", "pybind11"]
 build-backend = "scikit_build_core.build"
 
 [project]
@@ -180,6 +180,3 @@ convention = "numpy"
 [tool.scikit-build]
 metadata.version.provider = "scikit_build_core.metadata.setuptools_scm"
 cmake.source-dir = "src"
-
-[tool.setuptools_scm]
-version_scheme = "post-release"
