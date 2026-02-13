@@ -37,17 +37,6 @@ runs:
           ci/${{ inputs.version-file }}
           ci/extra_requirements.txt
 
-    # This installs the stuff needed to build and install Shapely and CartoPy from source.
-    - name: Install CartoPy/Shapely build dependencies
-      if: ${{ inputs.old-build == 'true' }}
-      shell: bash
-      run: sudo apt-get install libgeos-dev
-
-    - name: Disable Shapely Wheels
-      if: ${{ inputs.old-build == 'true' }}
-      shell: bash
-      run: echo "PIP_NO_BINARY=shapely" >> $GITHUB_ENV
-
     - name: Upgrade pip and setuptools
       shell: bash
       run: |
