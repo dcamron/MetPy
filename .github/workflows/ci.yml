@@ -20,12 +20,82 @@ jobs:
   Builds:
     uses: ./.github/workflows/packages.yml
 
-  TestsPyPI:
+  PyPITests:
     needs: Builds
-    uses: ./.github/workflows/tests-pypi.yml
-    with:
-      install-flags: --no-index --find-links ./wheelhouse/
-      download-name: wheels-${{ runner.name }}
+    # name: PyPI Tests
+    name: ${{ matrix.python-version }} ${{ matrix.dep-versions }} ${{ matrix.no-extras }}
+    runs-on: ${{ matrix.platform }}
+    env:
+      INSTALL_FLAGS: ''
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: ["ubuntu-latest", "macos-latest", "macos-15-intel", "windows-latest", "windows-11-arm"]
+        python-version: [3.11, 3.12, 3.13, 3.14]
+        dep-versions: [Latest]
+        no-extras: ['']
+        include:
+          - python-version: 3.11
+            dep-versions: Minimum
+          - python-version: 3.11
+            dep-versions: Minimum
+            no-extras: 'No Extras'
+          - python-version: 3.14
+            dep-versions: Latest
+            no-extras: 'No Extras'
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v6
+      with:
+        fetch-depth: 150
+        fetch-tags: true
+        persist-credentials: false
+
+    - uses: actions/download-artifact@v8
+
+    - name: Set flag to install minimum dependencies
+      if: ${{ matrix.dep-versions == 'Minimum' }}
+      run: echo "INSTALL_FLAGS=${{ ${{ env.INSTALL_FLAGS }} --resolution=lowest-direct" >> $GITHUB_ENV
+
+    - name: Install from PyPI
+      uses: ./.github/actions/install-pypi
+      with:
+        need-extras: ${{ matrix.no-extras != 'No Extras' }}
+        type: 'test'
+        python-version: ${{ matrix.python-version }}
+        old-build: ${{ matrix.no-extras != 'No Extras' && matrix.dep-versions == 'Minimum' }}
+        need-cartopy: ${{ matrix.no-extras != 'No Extras' }}
+        install-flags: ${{ env.INSTALL_FLAGS }}
+
+    - name: Run tests
+      uses: ./.github/actions/run-tests
+      with:
+        run-doctests: ${{ matrix.dep-versions == 'Latest' && matrix.no-extras != 'No Extras' }}
+        key: pypi-${{ matrix.python-version }}-${{ matrix.dep-versions }}-${{ matrix.no-extras }}-${{ runner.os }}
+
+  codecov:
+    needs: PyPITests
+    name: CodeCov Upload
+    runs-on: ubuntu-slim
+    environment:
+      name: CodeCov
+    timeout-minutes: 2
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Download coverage artifacts
+        uses: actions/download-artifact@v7
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v5
+        with:
+          name: PyPI
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   # TestsSDist:
 
