@@ -53,10 +53,16 @@ jobs:
         persist-credentials: false
 
     - uses: actions/download-artifact@v8
+      with:
+        name: wheels-${{ matrix.platform }}
 
     - name: Set flag to install minimum dependencies
       if: ${{ matrix.dep-versions == 'Minimum' }}
       run: echo "INSTALL_FLAGS=${{ env.INSTALL_FLAGS }} --resolution=lowest-direct" >> $GITHUB_ENV
+
+    - name: Set flag to constrain CI dependencies
+      if: ${{ matrix.dep-versions == 'Latest' }}
+      run: echo "INSTALL_FLAGS=${{ env.INSTALL_FLAGS }} -c ci/requirements.txt -c ci-dev/${{ inputs.type }}_requirements.txt -c ci/extra_requirements.txt" >> $GITHUB_ENV
 
     - name: Install from PyPI
       uses: ./.github/actions/install-pypi

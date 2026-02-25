@@ -56,18 +56,25 @@ runs:
           echo "DEP_GROUPS=${{ inputs.type }}" >> $GITHUB_ENV
         fi
 
+    - name: Set install flags
+      shell: bash
+      run: echo "INSTALL_FLAGS=${{ env.INSTALL_FLAGS }}" >> $GITHUB_ENV
+
+    - name: Massage for backwards compatibility
+      if: ${{ inputs.version-file && (inputs.install-flags == '') }}
+      shell: bash
+      run: echo "INSTALL_FLAGS=-c ci/${{ inputs.version-file }} -c ci-dev/${{ inputs.type }}_requirements.txt -c ci/extra_requirements.txt" >> $GITHUB_ENV
+
     - name: Install
       shell: bash
       run: >
-        uv pip install --system ${{ inputs.install-flags }} ${{ inputs.install-target }}[${{ env.DEP_GROUPS }}]
-        -c ci/${{ inputs.version-file }} -c ci-dev/${{ inputs.type }}_requirements.txt -c ci/extra_requirements.txt
+        uv pip install --system ${{ env.INSTALL_FLAGS }} ${{ inputs.install-target }}[${{ env.DEP_GROUPS }}]
 
     - name: Install additional test tools
       if: ${{ inputs.type == 'test' }}
       shell: bash
       run: >
-        uv pip install --system coverage
-        -c ci/${{ inputs.version-file }} -c ci-dev/${{ inputs.type }}_requirements.txt -c ci/extra_requirements.txt
+        uv pip install --system $${{ env.INSTALL_FLAGS }} coverage
 
     - name: Download Cartopy Maps
       if: ${{ inputs.need-cartopy == 'true' }}
