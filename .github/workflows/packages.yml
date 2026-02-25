@@ -50,7 +50,7 @@ jobs:
         if: inputs.build != ''
         run: echo "CIBW_BUILD=${{ inputs.build }}" >> $GITHUB_ENV
 
-      - name: Set optional CIBW builds
+      - name: Set optional CIBW archs
         if: inputs.archs != ''
         run: echo "CIBW_ARCHS=${{ inputs.archs }}" >> $GITHUB_ENV
 
