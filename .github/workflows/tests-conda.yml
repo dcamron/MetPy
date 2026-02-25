@@ -1,81 +1,74 @@
-name: Conda Tests
+# name: Conda Tests
 
-# We don't want pushes (or PRs) to gh-pages to kick anything off
-on:
-  # push:
-  #   branches:
-  #     - main
-  #     - '[0-9]+.[0-9]+.x'
-  # pull_request:
-  #   branches:
-  #     - main
-  #     - '[0-9]+.[0-9]+.x'
+# # We don't want pushes (or PRs) to gh-pages to kick anything off
+# on:
+#   workflow_call:
 
-concurrency:
-  group: ${{ github.workflow}}-${{ github.head_ref }}
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.workflow}}-${{ github.head_ref }}
+#   cancel-in-progress: true
 
-jobs:
-  #
-  # Run all tests on Conda on both Windows and macOS
-  #
-  CondaTests:
-    name: ${{ matrix.os }} ${{ matrix.python-version }}
-    runs-on: ${{ matrix.os }}-latest
-    defaults:
-      run:
-        shell: bash -l {0}
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: [3.11, 3.14]
-        os: [macOS, Windows]
-        include:
-          - python-version: 3.12
-            os: macOS
-          - python-version: 3.13
-            os: Windows
+# jobs:
+#   #
+#   # Run all tests on Conda on both Windows and macOS
+#   #
+#   CondaTests:
+#     name: ${{ matrix.os }} ${{ matrix.python-version }}
+#     runs-on: ${{ matrix.os }}-latest
+#     defaults:
+#       run:
+#         shell: bash -l {0}
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         python-version: [3.11, 3.14]
+#         os: [macOS, Windows]
+#         include:
+#           - python-version: 3.12
+#             os: macOS
+#           - python-version: 3.13
+#             os: Windows
 
-    steps:
-    - name: Checkout source
-      uses: actions/checkout@v6
-      with:
-        fetch-depth: 150
-        fetch-tags: true
-        persist-credentials: false
+#     steps:
+#     - name: Checkout source
+#       uses: actions/checkout@v6
+#       with:
+#         fetch-depth: 150
+#         fetch-tags: true
+#         persist-credentials: false
 
-    - name: Install from Conda
-      uses: ./.github/actions/install-conda
-      with:
-        type: 'test'
-        python-version: ${{ matrix.python-version }}
-        need-cartopy: true
+#     - name: Install from Conda
+#       uses: ./.github/actions/install-conda
+#       with:
+#         type: 'test'
+#         python-version: ${{ matrix.python-version }}
+#         need-cartopy: true
 
-    - name: Run tests
-      uses: ./.github/actions/run-tests
-      with:
-        run-doctests: ${{ runner.os != 'Windows' }}
-        key: conda-${{ matrix.python-version }}-${{ runner.os }}
+#     - name: Run tests
+#       uses: ./.github/actions/run-tests
+#       with:
+#         run-doctests: ${{ runner.os != 'Windows' }}
+#         key: conda-${{ matrix.python-version }}-${{ runner.os }}
 
-  codecov:
-    name: CodeCov Upload
-    needs: CondaTests
-    runs-on: ubuntu-slim
-    environment:
-      name: CodeCov
-    timeout-minutes: 2
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v6
-        with:
-          persist-credentials: false
+#   codecov:
+#     name: CodeCov Upload
+#     needs: CondaTests
+#     runs-on: ubuntu-slim
+#     environment:
+#       name: CodeCov
+#     timeout-minutes: 2
+#     steps:
+#       - name: Checkout source
+#         uses: actions/checkout@v6
+#         with:
+#           persist-credentials: false
 
-      - name: Download coverage artifacts
-        uses: actions/download-artifact@v7
+#       - name: Download coverage artifacts
+#         uses: actions/download-artifact@v7
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v5
-        with:
-          name: Conda
-          fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
+#       - name: Upload coverage
+#         uses: codecov/codecov-action@v5
+#         with:
+#           name: Conda
+#           fail_ci_if_error: true
+#           token: ${{ secrets.CODECOV_TOKEN }}
