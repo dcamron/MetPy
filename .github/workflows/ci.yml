@@ -56,7 +56,7 @@ jobs:
 
     - name: Set flag to install minimum dependencies
       if: ${{ matrix.dep-versions == 'Minimum' }}
-      run: echo "INSTALL_FLAGS=${{ ${{ env.INSTALL_FLAGS }} --resolution=lowest-direct" >> $GITHUB_ENV
+      run: echo "INSTALL_FLAGS=${{ env.INSTALL_FLAGS }} --resolution=lowest-direct" >> $GITHUB_ENV
 
     - name: Install from PyPI
       uses: ./.github/actions/install-pypi
