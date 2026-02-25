@@ -48,12 +48,10 @@ jobs:
 
       - name: Set optional CIBW builds
         if: inputs.build != ''
-        shell: bash
         run: echo "CIBW_BUILD=${{ inputs.build }}" >> $GITHUB_ENV
 
       - name: Set optional CIBW builds
         if: inputs.archs != ''
-        shell: bash
         run: echo "CIBW_ARCHS=${{ inputs.archs }}" >> $GITHUB_ENV
 
       - name: Build wheels
