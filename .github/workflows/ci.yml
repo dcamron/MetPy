@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - '[0-9]+.[0-9]+.x'
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
+  pull_request:
+    branches:
+      - main
+      - '[0-9]+.[0-9]+.x'
+
+concurrency:
+  group: ${{ github.workflow}}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  Builds:
+    uses: ./.github/workflows/packages.yml
+
+  # TestsPyPI:
+  #   needs: Builds
+  #   uses: ./.github/workflows/tests-pypi.yml
+  #   with:
+  #     install-flags: --no-index --find-links ./wheelhouse/
+  #     download-name: 
+
+  # TestsSDist:
+
+  # TestsConda:
+
+  # Docs:
+
+  # Lint?:
+
+  # Release?:
