@@ -20,12 +20,12 @@ jobs:
   Builds:
     uses: ./.github/workflows/packages.yml
 
-  # TestsPyPI:
-  #   needs: Builds
-  #   uses: ./.github/workflows/tests-pypi.yml
-  #   with:
-  #     install-flags: --no-index --find-links ./wheelhouse/
-  #     download-name: 
+  TestsPyPI:
+    needs: Builds
+    uses: ./.github/workflows/tests-pypi.yml
+    with:
+      install-flags: --no-index --find-links ./wheelhouse/
+      download-name: wheels-${{ runner.name }}
 
   # TestsSDist:
 

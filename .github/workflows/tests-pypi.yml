@@ -4,10 +4,20 @@ name: PyPI Tests
 on:
   workflow_call:
     inputs:
+      install-flags:
+        description: ''
+        type: string
+        required: false
+        default: ''
+      download-name:
+        description: ''
+        type: string
+        required: false
+        default: ''
 
-concurrency:
-  group: ${{ github.workflow}}-${{ github.head_ref }}
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.workflow}}-${{ github.head_ref }}
+#   cancel-in-progress: true
 
 jobs:
   #
@@ -15,10 +25,13 @@ jobs:
   #
   PyPITests:
     name: ${{ matrix.python-version }} ${{ matrix.dep-versions }} ${{ matrix.no-extras }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.platform }}
+    env: 
+      INSTALL_FLAGS: ${{ inputs.install-flags }}
     strategy:
       fail-fast: false
       matrix:
+        platform: ["ubuntu-latest", "macos-latest", "macos-15-intel", "windows-latest", "windows-11-arm"]
         python-version: [3.11, 3.12, 3.13, 3.14]
         dep-versions: [Latest]
         no-extras: ['']
@@ -40,27 +53,15 @@ jobs:
         fetch-tags: true
         persist-credentials: false
 
-    - name: Generate minimum dependencies
+    - name: Download artifacts if specified
+      if: ${{ inputs.download-name != '' }}
+      uses: actions/download-artifact@v8
+      with:
+        name: ${{ inputs.download-name }}
+
+    - name: Set flag to install minimum dependencies
       if: ${{ matrix.dep-versions == 'Minimum' }}
-      run: |
-        pip install tomli
-        python << EOF
-        import tomli as tomllib
-        from pathlib import Path
-
-        # Read our pyproject.toml
-        config = tomllib.load(open('pyproject.toml', 'rb'))['project']
-        opt_deps = config['optional-dependencies']
-
-        # Generate a Minimum dependency file
-        for src, fname in [(config['dependencies'], 'ci/requirements.txt'),
-                           (opt_deps['test'], 'ci-dev/test_requirements.txt'),
-                           (opt_deps['extras'], 'ci/extra_requirements.txt')]:
-          with Path(fname).open('wt') as out:
-            for dep in src:
-              dep = dep.split(';')[0]
-              out.write(dep.replace('>=', '==') + '\n')
-        EOF
+      run: echo "INSTALL_FLAGS=${{ env.INSTALL_FLAGS }} --resolution=lowest-direct" >> $GITHUB_ENV
 
     - name: Install from PyPI
       uses: ./.github/actions/install-pypi
@@ -70,6 +71,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
         old-build: ${{ matrix.no-extras != 'No Extras' && matrix.dep-versions == 'Minimum' }}
         need-cartopy: ${{ matrix.no-extras != 'No Extras' }}
+        install-flags: ${{ env.INSTALL_FLAGS }}
 
     - name: Run tests
       uses: ./.github/actions/run-tests
