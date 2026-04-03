@@ -45,7 +45,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=a77542ef"></script>
+    <script src="../_static/documentation_options.js?v=030dc6f6"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -74,7 +74,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="1.7dev" />
-    <meta name="docbuild:last-update" content="Feb 11, 2026 at 20:59:02"/>
+    <meta name="docbuild:last-update" content="Apr 03, 2026 at 23:26:17"/>
     <link rel="canonical" href="https://unidata.github.io/MetPy/latest/userguide/apichange.html" />
 
   </head>
@@ -554,8 +554,8 @@ relevant breakages you might encounter.</p>
 <section id="xarray-support-for-function-input-output">
 <h2>Xarray support for function input/output<a class="headerlink" href="#xarray-support-for-function-input-output" title="Link to this heading">#</a></h2>
 <p>One of the most important changes you may run into is that many of the functions in
-<a class="reference internal" href="../api/generated/metpy.calc.html#module-metpy.calc" title="metpy.calc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">metpy.calc</span></code></a> would have only returned <a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.1.dev50+g84762624b)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a> even when provided
-<a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v2026.1.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.DataArray</span></code></a>. Now, MetPy will properly return a <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v2026.1.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataArray</span></code></a> when
+<a class="reference internal" href="../api/generated/metpy.calc.html#module-metpy.calc" title="metpy.calc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">metpy.calc</span></code></a> would have only returned <a class="reference external" href="https://pint.readthedocs.io/en/stable/api/base.html#pint.Quantity" title="(in pint v0.25.3rc1.dev1+g5e79411e1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pint.Quantity</span></code></a> even when provided
+<a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v2026.2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.DataArray</span></code></a>. Now, MetPy will properly return a <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v2026.2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataArray</span></code></a> when
 provided one where able, except where otherwise explicitly stated. See the
 <a class="reference internal" href="../tutorials/xarray_tutorial.html"><span class="doc">MetPy xarray tutorial</span></a> for more information.</p>
 </section>
